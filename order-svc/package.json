@@ -1,0 +1,48 @@
+{
+  "name": "order-svc",
+  "version": "1.0.0",
+  "description": "order Svc",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bulwark-stack-org/order-svc.git"
+  },
+  "keywords": [
+    "order",
+    "reports"
+  ],
+  "author": "hoong.jun.cheong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bulwark-stack-org/order-svc/issues"
+  },
+  "homepage": "https://github.com/bulwark-stack-org/order-svc#readme",
+  "dependencies": {
+    "amqplib": "^0.6.0",
+    "aws-serverless-express": "^3.3.8",
+    "dateformat": "^3.0.3",
+    "express": "^4.17.1",
+    "json2csv": "^5.0.1",
+    "moment-timezone": "^0.5.31",
+    "nodemailer": "^6.4.6",
+    "pg": "^8.0.3",
+    "uuid": "^8.1.0",
+    "uuidv4": "^6.0.9"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "eslint": "^7.1.0",
+    "nodemon": "^2.0.3",
+    "postgresql-easy": "^1.2.5",
+    "serverless": "^1.71.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "DEBUG=${DEBUG:-$npm_package_config_debugModules} node --max-http-header-size=80000 app/src/bin/www",
+    "startlocal": "@powershell -Command $env:DEBUG='*'; nodemon --max-http-header-size=80000 -r dotenv/config app/src/bin/www",
+    "startlocalsl": "nodemon -r dotenv/config local.js",
+    "deploy": "serverless deploy --stage",
+    "debug": "node --nolazy --inspect-brk --max-http-header-size=80000 app/src/bin/www",
+    "lint": "eslint app/src/"
+  }
+}
